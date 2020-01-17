@@ -1,0 +1,142 @@
+<kendo-grid [kendoGridBinding]="gridView" kendoGridSelectBy="id" [selectedKeys]="mySelection" [pageSize]="20"
+    [pageable]="true" [sortable]="true" [groupable]="true" [reorderable]="true" [resizable]="true" [height]="560"
+    [columnMenu]="{ filter: true }"
+    (dataStateChange)="dataStateChange1($event)">
+    <ng-template kendoGridToolbarTemplate>
+        <!-- <div>Recent Search:<a  class="ecliplse" ng-bind-html="item.excrept | limitTo: 1" style="cursor: pointer;" *ngFor="let item of result; let i = index" (click)="showFilter(i)"><span id="1" style="padding: 5px;">{{item.searchname}}</span></a></div>-->   
+        <table> 
+            <tr>
+                <td>Recent Searches :</td>
+                <td *ngFor="let item of result; let i=index;">
+                    <i *ngIf="i<9" (click)="showFilter(i)">{{item.searchname}}</i>
+                    <i *ngIf="i==10" id="icon" class="fa fa-ellipsis-h" id ="moreIcon" aria-hidden="true"  (click)="recentsearch()"> </i>
+
+                    <!-- <i *ngIf="" class="fa fa-minus-square" aria-hidden="false"></i> -->
+                </td>
+            </tr>
+          
+        </table>
+        <!-- <input placeholder="Search in all columns..." kendoTextBox (input)="onFilter($event.target.value)" /> -->
+        <div class="dropdown">
+            <button class="btn btn-primary " type="button" data-toggle="dropdown">Export File<span class="caret"></span></button>
+            <ul class="dropdown-menu">
+                <li> <button kendoGridExcelCommand type="button" icon="file-excel">Export to Excel</button></li>
+                <li><button kendoGridPDFCommand type="button" icon="file-pdf">Export to PDF</button></li>
+            </ul>
+        </div>
+    </ng-template>
+    <kendo-grid-column-group title="Employee" [columnMenu]="false">
+        <kendo-grid-column field="full_name" title="Contact Name" [width]="220">
+        </kendo-grid-column>
+        <kendo-grid-column field="job_title" title="Job Title" [width]="220">
+        </kendo-grid-column>
+        <kendo-grid-column field="country" title="Country" [width]="100" [class]="{'text-center': true}"
+            [resizable]="false">
+            <ng-template kendoGridCellTemplate let-dataItem>
+                <img class="flag" [src]="flagURL(dataItem)" width="30">
+            </ng-template>
+        </kendo-grid-column>
+    </kendo-grid-column-group>
+    <kendo-grid-column-group title="Contacts" [columnMenu]="false">
+        <kendo-grid-column field="phone" title="Phone" [width]="130">
+        </kendo-grid-column>
+        <kendo-grid-column field="address" title="Address" [width]="200">
+        </kendo-grid-column>
+    </kendo-grid-column-group>
+    <kendo-grid-pdf fileName="Employees.pdf" [repeatHeaders]="true"></kendo-grid-pdf>
+    <kendo-grid-excel fileName="Employees.xlsx"></kendo-grid-excel>
+</kendo-grid>
+<p-dialog [(visible)]="display" [modal]="true" [responsive]="true" [style]="{width: '550px', minWidth: '200px'}" [minY]="70" 
+        [maximizable]="true" [baseZIndex]="10000">
+        <table class="savedSearches">
+            <tr>
+              <th>value1</th>
+              <th>value2</th>
+              <th>operator1</th>
+              <th>operator2</th>
+              <th>condition</th>
+            </tr>
+            <tr *ngIf="logic == 'And' || logic == 'Or'">              
+                <td>{{value1}}</td>
+                <td>{{value2}}</td>
+                <td>{{operator1}}</td>
+                <td>{{operator2}}</td>
+                <td>{{logic}}</td>
+               </tr>
+          </table>
+        <p-footer>
+            <button type="button" pButton icon="pi pi-check" (click)="saveFilter()"  label="Do you want to save this search"></button>
+            <button type="button" pButton icon="pi pi-close" (click)="display=false" label="Cancel" class="ui-button-secondary"></button>
+        </p-footer>
+</p-dialog>
+<p-dialog [(visible)]="recentpop" [modal]="true" [responsive]="true" [style]="{width: '350px', minWidth: '200px'}" [minY]="70" 
+        [maximizable]="false">
+        <!-- <div *ngFor="let m to result"></div> (5); let currentElementIndex=index+1-->
+        <!-- <div *ngFor="let m to result">
+            <a>{{m.searchname}}</a>   
+        </div> -->
+            <!-- <i class="fa fa-circle" aria-hidden="true"></i> -->
+            <a>More Recent Searches</a>
+           <br>
+            <span *ngFor="let item of result; let i=index;">
+               <span *ngIf="i>9" class="listItem">{{item.searchname}}</span>
+               <span *ngIf="i>9 && i%5==0 && i!=10" style="display: block;margin-top: 20px;"></span>
+            </span>
+         
+        <p-footer>
+            <!-- <button type="button" pButton icon="pi pi-check" (click)="saveFilter()"  label="Do you want to save this search"></button> -->
+            <button type="button" pButton icon="pi pi-close" (click)="recentpop=false" label="Cancel" class="ui-button-secondary"></button>
+        </p-footer>
+</p-dialog>
+<p-dialog [(visible)]="view" [modal]="true" [responsive]="true" [style]="{width: '350px', minWidth: '200px'}" [minY]="70" 
+        [maximizable]="true" [baseZIndex]="10000">
+         <div class="form-group">
+            <input type="text" class="form-control" id="pwd" placeholder="Enter search name" name="fname" [(ngModel)]="searchname">
+          </div>
+          <p-footer>
+            <button type="button" pButton icon="pi pi-check" (click)="saveName(searchname)"  label="Save this search"></button>
+            <button type="button" pButton icon="pi pi-close" (click)="display=false" label="Cancel" class="ui-button-secondary"></button>
+        </p-footer>
+</p-dialog>
+<div class="Modeln ">
+    <p-dialog id="boxModl" [(visible)]="filterdisplay" [modal]="true" [responsive]="true"
+        [style]="{width: '1050px', minWidth: '200px', height:'1450px'}" [minY]="70" [maximizable]="true"
+        [baseZIndex]="10000"style="margin-top:10em">
+      <div class="popupTest">
+        <kendo-grid  [data]="gridDataA" [pageSize]="state.take" [skip]="state.skip" [sort]="state.sort"
+            [filter]="state.filter" [sortable]="true" [pageable]="true" [filterable]="true"
+            (dataStateChange)="dataStateChange($event)" style="margin:0px"> 
+            <ng-template kendoGridToolbarTemplate>
+                <div class="dropdown">
+                    <button class="btn btn-primary " type="button" data-toggle="dropdown">Export File<span
+                            class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li> <button kendoGridExcelCommand type="button" icon="file-excel">Export to Excel</button></li>
+                        <li><button kendoGridPDFCommand type="button" icon="file-pdf">Export to PDF</button></li>
+                    </ul>
+                </div>
+            </ng-template>
+            <kendo-grid-column-group title="Employee" [columnMenu]="false">
+                <kendo-grid-column field="full_name" title="Contact Name" [width]="220">
+                </kendo-grid-column>
+                <kendo-grid-column field="job_title" title="Job Title" [width]="220">
+                </kendo-grid-column>
+                <kendo-grid-column field="country" title="Country" [width]="100" [class]="{'text-center': true}"
+                    [resizable]="false">
+                    <ng-template kendoGridCellTemplate let-dataItem>
+                        <img class="flag" [src]="flagURL(dataItem)" width="30">
+                    </ng-template>
+                </kendo-grid-column>
+            </kendo-grid-column-group>
+            <kendo-grid-column-group title="Contacts" [columnMenu]="false">
+                <kendo-grid-column field="phone" title="Phone" [width]="130">
+                </kendo-grid-column>
+                <kendo-grid-column field="address" title="Address" [width]="200">
+                </kendo-grid-column>
+            </kendo-grid-column-group>
+            <kendo-grid-pdf fileName="Employees.pdf" [repeatHeaders]="true"></kendo-grid-pdf>
+            <kendo-grid-excel fileName="Employees.xlsx"></kendo-grid-excel>
+        </kendo-grid>
+    </div>
+    </p-dialog>
+</div>

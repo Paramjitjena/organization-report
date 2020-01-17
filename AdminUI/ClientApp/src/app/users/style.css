@@ -1,0 +1,113 @@
+table {
+  width: 100%;
+}
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+h4.card-title{
+  position: relative;
+  display: inline;
+  top: -13px;
+}
+/* td, th {
+  width: 25%;
+} */
+.form-check-input {
+  opacity: 14;
+  height: 16px;
+  width: 60px;
+}
+.form-check .form-check-input {
+  opacity: 0;
+  position: absolute;
+  margin: 0;
+  /* z-index: -1; */
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  left: -14px;
+  bottom: 12px;
+  pointer-events: none;
+}
+.login {
+width: 400px;
+margin: 16px auto;
+font-size: 16px;
+margin-top: 84px !important;
+}
+.login-header,
+.login p {
+margin-top: 0;
+margin-bottom: 0;
+}
+.login-triangle {
+width: 0;
+margin-right: auto;
+margin-left: auto;
+border: 12px solid transparent;
+border-bottom-color: rgb(15, 66, 107);
+}
+.login-header {
+background: rgb(12, 77, 129);
+padding: 20px;
+font-size: 1.4em;
+font-weight: normal;
+text-align: center;
+text-transform: uppercase;
+color: #fff;
+}
+.login-container {
+background:grey;
+padding: 12px;
+}
+.login p {
+padding: 12px;
+}
+.login input {
+box-sizing: border-box;
+display: block;
+width: 100%;
+border-width: 1px;
+border-style: solid;
+padding: 16px;
+outline: 0;
+font-family: inherit;
+font-size: 0.95em;
+}
+.login input[type="email"],
+.login input[type="password"] {
+background: #fff;
+border-color: #bbb;
+color: #555;
+}
+.login input[type="email"]:focus,
+.login input[type="password"]:focus {
+border-color: #888;
+}
+.login input[type="submit"] {
+background: rgb(1, 29, 51);
+border-color: transparent;
+color: #fff;
+cursor: pointer;
+}
+.login input[type="submit"]:hover {
+background: #17c;
+}
+.login input[type="submit"]:focus {
+border-color: #05a;
+}
+.card{
+  margin: 70px 0 0 0 !important;
+}
+.alert {
+  line-height: 15px !important;
+  padding: 10px 15px;
+}
+.form-control-feedback{
+  position: absolute;
+  BOTTOM: -25px;
+ 
+  width: 100%;
+  height: 34px
+  }

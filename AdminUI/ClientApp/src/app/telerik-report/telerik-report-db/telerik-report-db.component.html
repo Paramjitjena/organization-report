@@ -1,0 +1,76 @@
+<div class="telerikReportdb">
+    <kendo-grid [kendoGridBinding]="users" kendoGridSelectBy="id" [selectedKeys]="mySelection" [pageSize]="20"
+        [pageable]="true" [sortable]="true" [groupable]="true" [reorderable]="true" [resizable]="true" [height]="560"
+        [columnMenu]="{ filter: true }" (dataStateChange)="dataStateChange($event)" >
+        <ng-template kendoGridToolbarTemplate>
+           
+             <table> 
+                <tr>
+                    <td>Recent Searches :</td>
+                    <td *ngFor="let item of result; let i=index;">
+                        <i *ngIf="i<9" (click)="showFilter(i)">{{item.searchname}}</i>
+                        <i *ngIf="i==10" id="icon" class="fa fa-ellipsis-h" id ="moreIcon" aria-hidden="true"  (click)="recentsearch()"> </i>
+                    </td>
+                </tr>  
+            </table>
+            <!-- <input placeholder="Search in all columns..." kendoTextBox (input)="onFilter($event.target.value)" /> -->
+            <div class="dropdown">
+                <button class="btn btn-primary " type="button" data-toggle="dropdown">Export File<span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li> <button kendoGridExcelCommand type="button" icon="file-excel">Export to Excel</button></li>
+                    <li><button kendoGridPDFCommand type="button" icon="file-pdf">Export to PDF</button></li>
+                </ul>
+            </div>
+        </ng-template>
+        <!-- <kendo-grid-checkbox-column [width]="45" [headerClass]="{'text-center': true}" [class]="{'text-center': true}"
+            [resizable]="false" [columnMenu]="false" showSelectAll="true"></kendo-grid-checkbox-column> -->
+        <kendo-grid-column-group title="Employee" [columnMenu]="false">
+            <kendo-grid-column field="id" title="ID" [width]="60">
+            </kendo-grid-column>
+            <kendo-grid-column field="fullname" title="Contact Name" [width]="220">
+                <ng-template kendoGridCellTemplate let-dataItem>
+                    <div class="customer-name">{{ dataItem.fullname }}</div>  
+                </ng-template>
+            </kendo-grid-column>
+            <kendo-grid-column field="employeeid" title="EmployeeId" [width]="100">
+            </kendo-grid-column>
+            <kendo-grid-column field="active" title="Active" [width]="60">
+            </kendo-grid-column>
+        </kendo-grid-column-group>
+        <kendo-grid-pdf fileName="Employees.pdf" [repeatHeaders]="true"></kendo-grid-pdf>
+        <kendo-grid-excel fileName="Employees.xlsx"></kendo-grid-excel>
+    </kendo-grid>
+    </div>
+    <p-dialog [(visible)]="display" [modal]="true" [responsive]="true" [style]="{width: '550px', minWidth: '200px'}" [minY]="70" 
+        [maximizable]="true" [baseZIndex]="10000">
+        <table class="savedSearches">
+            <tr>
+              <th>value1</th>
+              <th>value2</th>
+              <th>operator1</th>
+              <th>operator2</th>
+              <th>condition</th>
+            </tr>
+            <tr *ngIf="logic == 'And' || logic == 'Or'">              
+                <td>{{value1}}</td>
+                <td>{{value2}}</td>
+                <td>{{operator1}}</td>
+                <td>{{operator2}}</td>
+                <td>{{logic}}</td>
+               </tr>
+          </table>
+        <p-footer>
+            <button type="button" pButton icon="pi pi-check" (click)="saveFilter()"  label="Do you want to save this search"></button>
+            <button type="button" pButton icon="pi pi-close" (click)="display=false" label="Cancel" class="ui-button-secondary"></button>
+        </p-footer>
+</p-dialog>
+<p-dialog [(visible)]="view" [modal]="true" [responsive]="true" [style]="{width: '350px', minWidth: '200px'}" [minY]="70" 
+        [maximizable]="true" [baseZIndex]="10000">
+         <div class="form-group">
+            <input type="text" class="form-control" id="pwd" placeholder="Enter search name" name="fname" [(ngModel)]="searchname">
+          </div>
+          <p-footer>
+            <button type="button" pButton icon="pi pi-check" (click)="saveName(searchname)"  label="Save this search"></button>
+            <button type="button" pButton icon="pi pi-close" (click)="display=false" label="Cancel" class="ui-button-secondary"></button>
+        </p-footer>
+</p-dialog>

@@ -1,0 +1,54 @@
+.customer-photo {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-size: 32px 35px;
+    background-position: center center;
+    vertical-align: middle;
+    line-height: 32px;
+    box-shadow: inset 0 0 1px #999, inset 0 0 10px rgba(0,0,0,.2);
+    margin-left: 5px;
+}
+.customer-name {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 32px;
+    padding-left: 10px;
+}
+.red {
+    color: #D9534F;
+}
+.text-bold {
+    font-weight: 600;
+}
+.k-grid{
+    margin-top: 71px;
+    margin-left: 0px;
+}
+.dropdown{
+    float: right;
+    font-size: 14px;
+}
+.dropdown-menu {
+    position: relative;
+    top: 30px;
+    left: 132px;
+    display: block;
+    min-width: 8.3rem;
+}
+.btn{
+    padding: 7px 30px;
+    margin: -0.324143rem 1px;
+    cursor: pointer !important;
+}
+.k-grid th, .k-grid td {
+    padding: 3px 1px;
+    border-style: solid;
+    border-color: inherit;
+    outline: 0;
+    font-weight: inherit;
+    text-align: inherit;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

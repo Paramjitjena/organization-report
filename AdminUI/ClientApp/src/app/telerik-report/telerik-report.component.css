@@ -1,0 +1,119 @@
+.customer-photo {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-size: 32px 35px;
+    background-position: center center;
+    vertical-align: middle;
+    line-height: 32px;
+    box-shadow: inset 0 0 1px #999, inset 0 0 10px rgba(0,0,0,.2);
+    margin-left: 5px;
+}
+.customer-name {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 32px;
+    padding-left: 10px;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 25px;
+  }
+  
+th {
+    border: 1px solid #DDDDDD;
+    text-align: left;
+    padding: 8px;
+  }
+  
+.red {
+    color: #D9534F;
+}
+.text-bold {
+    font-weight: 600;
+}
+.k-grid{
+    margin-top: 71px;
+    margin-left: 0;
+}
+.dropdown{
+    float: right;
+    font-size: 14px;
+}
+.dropdown-menu {
+    position: relative;
+    top: 30px;
+    left: 132px;
+    display: block;
+    min-width: 8.3rem;
+}
+.btn{
+    padding: 7px 30px;
+    margin: 0 1px;
+    cursor: pointer !important;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #DDDDDD;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  td[_ngcontent-ng-cli-universal-c2]{
+      border: none;
+  }
+  table.ng-star-inserted {
+    background-color: #fff;
+    box-shadow: 0 0.46875rem 2.1875rem rgba(4,9,20,0.03), 0 0.9375rem 1.40625rem rgba(4,9,20,0.03), 0 0.25rem 0.53125rem rgba(4,9,20,0.05), 0 0.125rem 0.1875rem rgba(4,9,20,0.03);
+    margin-bottom: 8px;
+    border-radius: 4px;
+}
+.k-grid-toolbar {
+    height: 80px!important;
+}
+i.ng-star-inserted {
+    color: #004E9E;
+  
+    box-shadow: 2px 2px 0px 0px #D5D1D1;
+    background: #FAF9F9;
+    padding: 6px 14px;
+}
+td[_ngcontent-ng-cli-universal-c2]{
+    float: left;
+}
+table.ng-star-inserted td {
+    font-weight: 600;
+}
+.fa-ellipsis-h{
+   
+    box-shadow: 0 0.46875rem 2.1875rem rgba(4,9,20,0.03), 0 0.9375rem 1.40625rem rgba(4,9,20,0.03), 0 0.25rem 0.53125rem rgba(4,9,20,0.05), 0 0.125rem 0.1875rem rgba(4,9,20,0.03);
+    color: #fff!important;
+    background: #0A54AA!important;
+    padding: 7px 9px!important;
+    position: relative;
+   
+    border-radius: 4px!important;
+}
+.savedSearches td {
+   float: inherit;
+   border: 1px solid #DDDDDD;}
+   table.savedSearches {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+span.listItem{
+    background: #007AD9;
+    /* min-width: 257px; */
+    padding: 5px;
+    width: 100%;
+    /* width: 200px; */
+    margin-right: 10px;
+}

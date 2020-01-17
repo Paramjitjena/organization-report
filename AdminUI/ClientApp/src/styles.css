@@ -1,0 +1,157 @@
+.k-popup>.k-widget {
+    border-width: 0;
+    display: none !important;
+}
+.k-toolbar {
+    /* background-clip: padding-box; */
+    display: none !important;
+}
+.main-panel{
+    margin-top: 22px;
+}
+.k-grid-toolbar{
+    height: 81px!important;
+    padding-bottom: 15px;
+}
+.ui-dialog{
+    /* left: 50%!important;
+    top: 50%!important;
+    transform: translate(-50%,-50%)!important; */
+    margin-top: 40px;
+}
+body .ui-widget-overlay {
+    background-color: rgba(0, 0, 0, 0.84)!important;
+}
+.form-check-input {
+    opacity: 14;
+    height: 16px;
+    width: 60px;
+}
+.form-check .form-check-input {
+    opacity: 0;
+    position: absolute;
+    margin: 0;
+    /* z-index: -1; */
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    left: -14px;
+    bottom: 12px;
+    pointer-events: none;
+}
+.form-check[_ngcontent-ng-cli-universal-c2] .form-check-input[_ngcontent-ng-cli-universal-c2] {
+    opacity: 2!important;
+    position: absolute;
+    margin: 0;
+    width: 19px !important;
+    height: 36px !important;
+    overflow: hidden;
+    left: 0px !important;
+    bottom: 2px !important;
+    pointer-events: none;
+}
+.form-check .form-check-input{
+    z-index: 2;
+}
+.main-panel {
+    width: calc(100% - 207px);
+}
+i.fa.fa-unlock.menu-icon.fa-1x {
+    color: green;
+}
+i.fa.fa-lock.menu-icon.fa-1x {
+    color: red;
+}
+span.notification {
+    display: none!important;
+}
+span.lock, .edit, .view {
+    background: #fff;
+    padding: 2px 10px;
+    border-radius: 4px;
+    margin-top: 8px;
+    margin-left: 26px;
+    z-index: 99;;
+    box-shadow: 0 0.46875rem 2.1875rem rgba(4,9,20,0.03), 0 0.9375rem 1.40625rem rgba(4,9,20,0.03), 0 0.25rem 0.53125rem rgba(4,9,20,0.05), 0 0.125rem 0.1875rem rgba(4,9,20,0.03);
+}
+tr.ng-star-inserted td {
+    padding: 10px 10px;
+}
+th[_ngcontent-ng-cli-universal-c2]{
+    padding: 10px 10px;
+}
+a#navbar-toggle {
+    padding: 0 5px;
+}
+@media screen and (max-width: 991px) and (min-width: 320px) {
+    .main-panel{
+        width: 100%;
+    }
+}
+.edit[_ngcontent-ng-cli-universal-c2], .view[_ngcontent-ng-cli-universal-c2], .lock[_ngcontent-ng-cli-universal-c2] {
+    font-size: 12px;
+    opacity: 0;
+    position: absolute;
+    top: -25px!important;
+    left: -45px!important;
+}
+.popupTest .k-grid-toolbar{
+    height: 53px!important;
+}
+.k-grouping-header .k-indicator-container {
+    display: none;
+}
+kendo-grid-group-panel.k-grouping-header.k-grouping-header-flex.ng-star-inserted {
+    padding: 0;
+}
+.telerikReportdb .k-grid-toolbar{
+    height: 29px!important;
+}
+.telerikReportdb kendo-grid-group-panel.k-grouping-header.k-grouping-header-flex{
+    padding: 0;
+}
+.k-grid-aria-root {
+    margin: 18px 18px;
+    border: 1px solid #CCCCCF;
+    border-radius: 6px;
+}
+.k-grid-header.ng-star-inserted {
+    padding-right: 0!important;
+}
+.k-grid-header {
+    padding-right: 0!important;
+}
+.k-grid-header-wrap tr:first-child{
+    background-color: #003A70;
+    color: #fff;
+}
+.k-grid-header-wrap tr th:first-child{
+    padding: 10px 10px;
+}
+.k-grid-header-wrap tr th:nth-child(2){
+    padding: 10px 10px;
+    border-left: 1px solid #fff;
+}
+i.ng-star-inserted[_ngcontent-ng-cli-universal-c2] {
+    color: #004E9E;
+    /* font-weight: 600; */
+    box-shadow: 2px 2px 0px 0px #D5D1D1;
+    background: #FAF9F9;
+    padding: 6px 14px;
+}
+.ngx-notification{
+z-index: 99999999!important;
+color: #fff!important;
+}
+ .ngx-notification.success {
+    background-color: #449d44!important;
+    border-color: #398439!important;
+  }
+  .ngx-notification.danger {
+    background-color: #c9302c!important;
+    border-color: #ac2925!important; 
+  }
+  .ngx-notification.warning { 
+    background-color: #ec971f!important;
+    border-color: #d58512!important;
+  }
